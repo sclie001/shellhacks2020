@@ -1,1 +1,1 @@
-# shellhacks2020
+# ShellHacks2020
