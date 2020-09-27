@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, url_for
 from twilio.twiml.messaging_response import MessagingResponse
 from icebreaker import choose_icebreaker
 from profanity_filter import ProfanityFilter
@@ -20,6 +20,11 @@ def chat():
 		if not pf.is_clean(incoming_msg):
 			msg.body("Please refrain from using inappropriate language. This is meant to be a safe space.")
 	return str(resp)
+
+@app.route('/')
+@app.route("/home")
+def home():
+    return render_template('home.html', title="[title]")
 
 if __name__ == "__main__":
 	app.run()
